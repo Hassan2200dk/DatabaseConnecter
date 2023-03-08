@@ -82,9 +82,23 @@ public class Controller {
         }
     }
 
+    public static void menu(){
+        System.out.println("Du har nu en række muligheder. Vælg tilsvarende tal til denne operation du vil indføre");
+        System.out.println("Skriv 1 hvis du vil se dataen fra en specifik tabel.");
+        System.out.println("Skriv 2 hvis du vil indsætte data i tabellerne.");
+        String choices = in.nextLine();
+        if (choices.equals("1")){
+
+
+            System.out.println("Hvilken tabel vil du gerne se\nSkriv 1 for cars\n"
+                    + "Skriv 2 drivers\nSkriv 3 rental_contracts");
+        }
+
+    }
 
     public static void main(String[] args) throws InterruptedException {
-       // enterPassword();
+        enterPassword();
+        menu();
         sqlmethod("cars");
     }
     }
