@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        sqlmethod("music", "genre", "bjkghkjgukl");
+        sqlmethod("music", "genre", "pop");
 
         System.out.println("Tast tilhørende tal for at se muligheder");
 
