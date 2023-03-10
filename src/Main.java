@@ -60,4 +60,19 @@ public class Main {
             System.exit(1);
         }
     }
+
+    public void dkd(){
+        Scanner in = new Scanner(System.in);
+        String choices = in.nextLine();
+        while (choices.equals("1") || choices.equals("2") || choices.equals("3") || choices.equals("4")) {
+            System.out.println("Er du sikker du vil vælge " + choices +" Skriv ja hvis du vil ");
+            String confirmation = in.nextLine();
+            if (confirmation.equalsIgnoreCase("ja")) {
+                break;
+            } else {
+                System.out.print(UiClass.MENU_OPTIONS);
+                choices = in.nextLine();
+            }
+        }
+    }
 }
