@@ -38,4 +38,18 @@ public class UiClass {
             "\nTast 8 for e-mail" +
             "\nTast 9 for kørekortnummer" +
             "\nTast 10 for kørekort udstedt dato (åååå-mm-dd)";
+
+    public static final String UPDATE_MSG_RentalContracts = "Hvilken kolonne vil du ændre?\nTast 1 for lejers navn" +
+            "\nTast 2 for lejers adresse" +
+            "\nTast 3 for lejers postnummer" +
+            "\nTast 4 for lejers by" +
+            "\nTast 5 for chaufførens kørekortnummer" +
+            "\nTast 6 for udlejningsdato" +
+            "\nTast 7 for tilbageleveringsdato" +
+            "\nTast 8 for maksimal kilometerstand" +
+            "\nTast 9 for kilometerstand ved start" +
+            "\nTast 10 for registreringsnummer" +
+            "\nTast 11 for chauffør-id" +
+            "\nTast 12 for bil-id";
+
 }

@@ -222,7 +222,7 @@ public class SqlMetoder {
         }
     }
 
-    public static void sqlMethodForContact(String driverId, String carId, String contractBeginningTime, String contractEndTime){
+    public static void sqlMethodForContract(String driverId, String carId, String contractBeginningTime, String contractEndTime){
 
 
         try {
@@ -255,7 +255,7 @@ public class SqlMetoder {
     }
 
     public static void main(String[] args) {
-            sqlMethodForContact("5","4","2002-02-02", "2005-02-05");
+            sqlMethodForContract("5","4","2002-02-02", "2005-02-05");
     }
 
 }

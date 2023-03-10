@@ -59,6 +59,26 @@ public class Controller {
                         break;
                     }
                 }
+                if (firstChoice.equals("3"))
+                    while (true) {
+                        System.out.println("Du har valgt at se dataen fra rental_contracts\nVil du se alt data fra kontrakterne eller en specific data" +
+                                "\nTast 1 for at for at se alle data\nTast 2 for at se data fra en specifik rental_contract_id");
+                        String secondChoice = in.nextLine();
+                        switch (secondChoice) {
+                            case "1":
+                                SqlMetoder.sqlMethodForAll(UiClass.RENTAL_CONTRACTS_TABLE);
+                                break;
+                            case "2":
+                                System.out.println("Hvilken id vil du se på?");
+                                String thirdChoice = in.nextLine();
+                                SqlMetoder.sqlMethodForCriteria(UiClass.DRIVERS_TABLE, "rental_id", thirdChoice);
+                                break;
+                            default:
+                                System.out.println("Vælg en gyldig mulighed");
+                                continue;
+                        }
+                        break;
+                    }
                 System.out.println(UiClass.REPEAT_MSG);
                 String repeatOption = in.nextLine();
 
@@ -109,7 +129,29 @@ public class Controller {
                             break;
 
                         case "3":
-                            // kode for for rental_contracts table
+                            boolean continueAddingContracts = true;
+                            while (continueAddingContracts) {
+
+                                System.out.println("Nævn din driver_id");
+                                String driver_id = in.nextLine();
+                                System.out.println("Nævn din car_id");
+                                String car_id = in.nextLine();
+
+                                System.out.println("Nævn begyndelsesdatoen (YYYY-MM-DD) ");
+                                String beginning_time = in.nextLine();
+                                System.out.println("Nævn sluttedatoen (YYYY-MM-DD) ");
+                                String ending_time = in.nextLine();
+                                SqlMetoder.sqlMethodForContract(driver_id,car_id,beginning_time,ending_time);
+                                System.out.println(UiClass.addingMoreValue);
+                                String moredata = in.nextLine();
+                                if (moredata.equalsIgnoreCase("ja")) {
+                                    continueAddingContracts = true;
+                                } else if (moredata.equalsIgnoreCase("nej")) {
+                                    continueAddingContracts = false;
+                                } else {
+                                    System.out.println("Ugyldigt valg. Prøv igen.");
+                                }
+                            }
                             break;
 
                         default:
@@ -147,6 +189,9 @@ public class Controller {
                     SqlMetoder.sqlMethodForDeletion(UiClass.DRIVERS_TABLE,"driver_id",deleteId);
                 } else if (tabel.equals("3")) {
                     System.out.println("Du har nu valgt rental_contracts");
+                    System.out.println("Hvilken rental_id vil du gerne slette");
+                    String deleteId = in.nextLine();
+                    SqlMetoder.sqlMethodForDeletion(UiClass.RENTAL_CONTRACTS_TABLE,"rental_id",deleteId);
                 }
                 System.out.println(UiClass.REPEAT_MSG);
                 String repeatOption = in.nextLine();
@@ -301,6 +346,75 @@ public class Controller {
 
         } else if (tabel.equals("3")) {
             System.out.println("Du har nu valgt rental_contracts");
+            System.out.println("Hvilken rental_id vil du gerne opdatere");
+            String updateId = in.nextLine();
+            System.out.println(UiClass.UPDATE_MSG_RentalContracts);
+            String updateChoice = in.nextLine();
+            switch (updateChoice) {
+                case "1":
+                    System.out.println("Du har valgt at ændre lejers navn\nHvad vil du opdatere værdien til");
+                    String changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "renters_name", changeValue, "rental_id", updateId);
+                    break;
+                case "2":
+                    System.out.println("Du har valgt at ændre lejers adresse\nHvad vil du opdatere værdien til");
+                    changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "renters_address", changeValue, "rental_id", updateId);
+                    break;
+                case "3":
+                    System.out.println("Du har valgt at ændre lejers postnummer\nHvad vil du opdatere værdien til");
+                    changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "renters_zip", changeValue, "rental_id", updateId);
+                    break;
+                case "4":
+                    System.out.println("Du har valgt at ændre lejers by\nHvad vil du opdatere værdien til");
+                    changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "renters_city", changeValue, "rental_id", updateId);
+                    break;
+                case "5":
+                    System.out.println("Du har valgt at ændre lejers kørekortnummer\nHvad vil du opdatere værdien til");
+                    changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "driver_license_number", changeValue, "rental_id", updateId);
+                    break;
+                case "6":
+                    System.out.println("Du har valgt at ændre lejens startdato\nHvad vil du opdatere værdien til");
+                    changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "from_date_time", changeValue, "rental_id", updateId);
+                    break;
+                case "7":
+                    System.out.println("Du har valgt at ændre lejens slutdato\nHvad vil du opdatere værdien til");
+                    changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "to_date_time", changeValue, "rental_id", updateId);
+                    break;
+                case "8":
+                    System.out.println("Du har valgt at ændre max antal km for lejen\nHvad vil du opdatere værdien til");
+                    changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "max_km", changeValue, "rental_id", updateId);
+                    break;
+                case "9":
+                    System.out.println("Du har valgt at ændre start km\nHvad vil du opdatere værdien til");
+                    changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "km_at_start", changeValue, "rental_id", updateId);
+                    break;
+                case "10":
+                    System.out.println("Du har valgt at ændre registreringsnummer\nHvad vil du opdatere værdien til");
+                    changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "registration_number", changeValue, "rental_id", updateId);
+                    break;
+                case "11":
+                    System.out.println("Du har valgt at ændre driver id\nHvad vil du opdatere værdien til");
+                    changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "driver_id", changeValue, "rental_id", updateId);
+                    break;
+                case "12":
+                    System.out.println("Du har valgt at ændre car id\nHvad vil du opdatere værdien til");
+                    changeValue = in.nextLine();
+                    SqlMetoder.sqlMethodForUpdating(UiClass.RENTAL_CONTRACTS_TABLE, "car_id", changeValue, "rental_id", updateId);
+                    break;
+                default:
+                    System.out.println("Ugyldigt valg");
+                    break;
+            }
         }
     }
 
