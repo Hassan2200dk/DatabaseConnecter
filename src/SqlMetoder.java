@@ -222,8 +222,40 @@ public class SqlMetoder {
         }
     }
 
+    public static void sqlMethodForContact(String driverId, String carId, String contractBeginningTime, String contractEndTime){
+
+
+        try {
+            con = DriverManager.getConnection(database_url, "root", "root");
+            Statement s = con.createStatement();
+            String sql = "INSERT INTO rental_contracts (renters_name, renters_address, renters_zip, renters_city, driver_license_number, registration_number, from_date_time, to_date_time, max_km, km_at_start, driver_id, car_id) " +
+                    "SELECT CONCAT(d.firstname, ' ', d.lastname) AS renters_name, d.address AS renters_address, d.zip AS renters_zip, d.city AS renters_city, d.driver_license_number, c.registration_number, '" + contractBeginningTime + "' AS from_date_time, '" + contractEndTime + "' AS to_date_time, 100 AS max_km, c.odometer_reading AS km_at_start, d.driver_id, c.car_id " +
+                    "FROM drivers d, cars c " +
+                    "WHERE d.driver_id = " + driverId + " AND c.car_id = " + carId;
+
+
+
+            System.out.println(sql);
+            System.out.println();
+
+            int rowsConfirmation = s.executeUpdate(sql);
+
+            if (rowsConfirmation > 0) {
+                System.out.println("Succesful kontrakt");
+            } else {
+                System.out.println("Der gik noget galt");
+            }
+            s.close();
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println("Der er en sql exception " + e.getMessage());
+            System.exit(1);
+        }
+    }
+
     public static void main(String[] args) {
-            sqlMethodForUpdating("cars","fuel_type","benzin","car_id", "2");
+            sqlMethodForContact("5","4","2002-02-02", "2005-02-05");
     }
 
 }
