@@ -1,55 +1,55 @@
-import java.util.Scanner;
-
 public class UiClass {
-    public static final String MENU_OPTIONS = "Du har nu en række muligheder. Vælg tilsvarende tal til denne operation du vil indføre\n"
-            + "Skriv 1 hvis du vil se dataen fra en specifik tabel.\n"
-            + "Skriv 2 hvis du vil indsætte data i tabellerne.\n"
-            + "Skriv 3 hvis du vil slette data i tabellerne.\n"
-            +"Skriv 4 hvis du vil opdatere data i tabellerne.\n"
-            + "Skriv 9 hvis du vil se logge ud\n";
+    public static final String MENU_OPTIONS = "Welcome to Kailua Car rental company 🖇️🚘 \n " +
+            "__________________________________________________________________________________________ \n" +
+            "In order to proceed, please select the number for the operation you wish to implement." +
+            "\n" + " \n"
+            + "Type 1 if you want to view data from a specific table.\n"
+            + "Type 2 if you want to insert data in the tables.\n"
+            + "Type 3 if you want to delete data from the tables.\n"
+            + "Type 4 if you want to update the tables.\n"
+            + "Type 9 to log out of the system.\n";
 
     public static final String CARS_TABLE = "cars";
 
     public static final String DRIVERS_TABLE = "drivers";
 
-    public static final String addingMoreValue = "Vil du indtaste mere data\nTast Ja hvis du vil, ellers tast Nej";
+    public static final String addingMoreValue = "Do you want to enter more data?" + "Type 'Yes' if you do, otherwise type 'No'.\n";
 
-    public static final String RENTAL_CONTRACTS_TABLE = "rental_contracts";
-    public static final String REPEAT_MSG = ("Vil du fortsætte\nSkriv ja hvis du fortsætte eller skriv noget andet");
-    public static final String LOGOUT_MSG = "Du har nu valgt at logge ud...";
-    public static final String OPTION_TABLE = "Hvilken tabel vil du gerne se\nSkriv 1 for cars\n"
-            + "Skriv 2 drivers\nSkriv 3 rental_contracts";
+    public static final String RENTAL_CONTRACTS_TABLE = "rental_contracts"; //TODO
+    public static final String REPEAT_MSG = ("Do you want to continue?\nType 'Yes' or 'no'");
+    public static final String LOGOUT_MSG = "\"You have now chosen to log out...\"";
+    public static final String OPTION_TABLE = "which table would you like to see\n" + "type 1 for cars\ntype 2 for drivers\ntype 3 rental_contracts ";
 
 
-    public static final String UPDATE_MSG_Cars= "Hvilken Kolonne vil du ændr?\nTast 1 for brand/model" +
-            "\nTast 2 for fueltype" +
-            "\nTast 3 for registration number" +
-            "\nTast 4 for registration year/month" +
-            "\nTast 5 for odometer reading" +
-            "\nTast 6 for car type";
+    public static final String UPDATE_MSG_Cars= "Which column do you want to change?\nType 1 for brand/model." +
+            "\nType 2 for fueltype" +
+            "\nType 3 for registration number" +
+            "\nType 4 for registration year/month" +
+            "\nType 5 for odometer reading" +
+            "\nType 6 for car type";
 
-    public static final String UPDATE_MSG_Drivers= "Hvilken kolonne vil du ændre?\nTast 1 for fornavn" +
-            "\nTast 2 for efternavn" +
-            "\nTast 3 for adresse" +
-            "\nTast 4 for postnummer" +
-            "\nTast 5 for by" +
-            "\nTast 6 for mobiltelefon" +
-            "\nTast 7 for telefon" +
+    public static final String UPDATE_MSG_Drivers= "which column do you want to change?\nType 1 for firstname" +
+            "\nType 2 for lastname" +
+            "\nType 3 for address" +
+            "\nType 4 for zip code" +
+            "\nType 5 for city" +
+            "\nType 6 for phone number" +
+            "\nTast 7 for phone" +
             "\nTast 8 for e-mail" +
-            "\nTast 9 for kørekortnummer" +
-            "\nTast 10 for kørekort udstedt dato (åååå-mm-dd)";
+            "\nTast 9 for driver license number" +
+            "\nTast 10 for Date of driver's license issuance.(YYYY- MM-DD)";
 
-    public static final String UPDATE_MSG_RentalContracts = "Hvilken kolonne vil du ændre?\nTast 1 for lejers navn" +
-            "\nTast 2 for lejers adresse" +
-            "\nTast 3 for lejers postnummer" +
-            "\nTast 4 for lejers by" +
-            "\nTast 5 for chaufførens kørekortnummer" +
-            "\nTast 6 for udlejningsdato" +
-            "\nTast 7 for tilbageleveringsdato" +
-            "\nTast 8 for maksimal kilometerstand" +
-            "\nTast 9 for kilometerstand ved start" +
-            "\nTast 10 for registreringsnummer" +
-            "\nTast 11 for chauffør-id" +
-            "\nTast 12 for bil-id";
+    public static final String UPDATE_MSG_RentalContracts = "which column do you want to change?\nType 1 the renter's name" +
+            "\nType 2 for renter's address." +
+            "\nType 3 for renter's zip code" +
+            "\nType 4 for renter's  city" +
+            "\nType 5 for the driver's license number" +
+            "\nType 6 for renting date" +
+            "\nType 7 for returning date" +
+            "\nType 8 for Maximum mileage." +
+            "\nType 9 for Mileage at start" +
+            "\nType 10 for registration number" +
+            "\nType 11 for driver-id" +
+            "\nType12 for car-id";
 
 }

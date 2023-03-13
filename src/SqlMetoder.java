@@ -35,7 +35,7 @@ public class SqlMetoder {
             con.close();
 
         } catch (SQLException e) {
-            System.out.println("Der er en sql exception " + e.getMessage());
+            System.out.println("There is an SQL exception: " + e.getMessage());
             System.exit(1);
         }
     }
@@ -68,7 +68,8 @@ public class SqlMetoder {
             con.close();
 
         } catch (SQLException e) {
-            System.out.println("Der er en sql exception " + e.getMessage());
+            System.out.println("There is an SQL exception: " + e.getMessage());
+
             System.exit(1);
         }
     }
@@ -117,7 +118,7 @@ public class SqlMetoder {
             con.close();
 
         } catch (SQLException e) {
-            System.out.println("Der er en sql exception " + e.getMessage());
+            System.out.println("There is an SQL exception: " + e.getMessage());
             System.exit(1);
         }
     }
@@ -193,7 +194,7 @@ public class SqlMetoder {
             con.close();
 
         } catch (SQLException e) {
-            System.out.println("Der er en sql exception " + e.getMessage());
+            System.out.println("There is an SQL exception: " + e.getMessage());
             System.exit(1);
         }
     }
@@ -217,7 +218,7 @@ public class SqlMetoder {
             s.close();
             con.close();
         } catch (SQLException e) {
-            System.out.println("There was an SQL exception: " + e.getMessage());
+            System.out.println("There is an SQL exception: " + e.getMessage());
             System.exit(1);
         }
     }
@@ -241,15 +242,15 @@ public class SqlMetoder {
             int rowsConfirmation = s.executeUpdate(sql);
 
             if (rowsConfirmation > 0) {
-                System.out.println("Succesful kontrakt");
+                System.out.println("The contract was successfully made!");
             } else {
-                System.out.println("Der gik noget galt");
+                System.out.println("Something went wrong");
             }
             s.close();
             con.close();
 
         } catch (SQLException e) {
-            System.out.println("Der er en sql exception " + e.getMessage());
+            System.out.println("There is an SQL exception: " + e.getMessage());
             System.exit(1);
         }
     }
